@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Detecting to Mentoring — Faculty Resources | Megan Alstot &amp; Zhuo Chen</title>
+<meta name="description" content="Faculty resources from the Teaching with AI session 'From Detecting to Mentoring' by Megan Alstot and Zhuo Chen — the session slides, the eleven-reasons mentoring matrix, a guardrail prompt library, and the research behind it.">
+<meta property="og:title" content="From Detecting to Mentoring — Faculty Resources">
+<meta property="og:description" content="The slides, the mentoring matrix, the guardrail prompts, and the research from the Teaching with AI session.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#2d2a5c;
+    --indigo-deep:#211f47;
+    --rose:#9e3a54;
+    --rose-soft:#c97a8c;
+    --cream:#f7f3ea;
+    --cream-deep:#efe8d8;
+    --ink:#2b2840;
+    --muted:#6c6880;
+    --line:#e0d8c6;
+    --mustard:#c9a227;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Mulish',system-ui,sans-serif; font-size:18px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .skip{position:absolute; left:-9999px; top:0; background:var(--indigo); color:#fff; padding:10px 16px; z-index:10;}
+  .skip:focus{left:8px; top:8px;}
+
+  /* ---- top band ---- */
+  .band{background:var(--indigo); color:#fff; padding:22px 0;}
+  .band .inner{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .mark{font-family:'Fraunces',serif; font-weight:600; font-size:20px; letter-spacing:.5px;}
+  .mark sup{font-size:.6em; top:-.5em;}
+  .eyebrow{font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#cbc8e6; font-weight:600;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* ---- hero ---- */
+  .hero{padding:78px 0 30px;}
+  .hero h1{
+    font-family:'Fraunces',serif; font-weight:500; font-size:clamp(40px,7vw,68px);
+    line-height:1.02; letter-spacing:-.01em; margin:0 0 18px; color:var(--indigo);
+  }
+  .hero h1 .dot{color:var(--rose);}
+  .hero .sub{font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:clamp(20px,3.2vw,26px); color:var(--rose); margin:0 0 34px; line-height:1.3;}
+  .lede{font-size:19px; color:var(--ink); max-width:62ch;}
+  .lede strong{font-weight:700;}
+
+  .rule{height:1px; background:var(--line); border:0; margin:54px 0;}
+
+  /* ---- resource sections ---- */
+  .res{padding:6px 0 2px;}
+  .res h2{
+    font-family:'Fraunces',serif; font-weight:500; font-size:clamp(26px,4vw,34px);
+    color:var(--indigo); margin:0 0 12px; line-height:1.1;
+  }
+  .res h2 .dot{color:var(--rose);}
+  .res p{color:var(--ink); margin:0 0 20px; max-width:64ch;}
+  .res .cite{font-size:15px; color:var(--muted); font-style:italic; max-width:64ch; margin-top:-6px;}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'Mulish',sans-serif; font-weight:700; font-size:17px;
+    color:var(--indigo); text-decoration:none;
+    border:1.5px solid var(--indigo); border-radius:999px;
+    padding:12px 24px; transition:all .18s ease; background:transparent;
+  }
+  .btn .arrow{transition:transform .18s ease;}
+  .btn:hover{background:var(--indigo); color:#fff;}
+  .btn:hover .arrow{transform:translateX(4px);}
+  .btn.rose{color:var(--rose); border-color:var(--rose);}
+  .btn.rose:hover{background:var(--rose); color:#fff;}
+
+  /* a small flag for links Megan still needs to paste */
+  .todo{
+    display:inline-block; margin-left:12px; font-size:13px; font-weight:700;
+    color:var(--mustard); vertical-align:middle; letter-spacing:.03em;
+  }
+
+  /* ---- closing ---- */
+  .closing{background:var(--indigo); color:#fff; margin-top:64px; padding:64px 0 56px;}
+  .closing .mark{margin-bottom:22px; display:inline-block;}
+  .closing h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(24px,4vw,32px); margin:0 0 10px; line-height:1.2;}
+  .closing p.tag{color:#cbc8e6; font-style:italic; font-family:'Fraunces',serif; font-size:19px; margin:0 0 40px;}
+  .people{display:flex; flex-wrap:wrap; gap:40px; margin-top:8px;}
+  .person .name{font-weight:700; font-size:18px;}
+  .person .role{color:#bdb9dd; font-size:15px;}
+  .person a{color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.4); font-size:15px;}
+  .person a:hover{border-color:#fff;}
+
+  @media (max-width:560px){
+    .band .inner{flex-direction:column; align-items:flex-start; gap:6px;}
+    .hero{padding:54px 0 24px;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#resources">Skip to resources</a>
+
+<header class="band">
+  <div class="wrap inner">
+    <span class="mark">HITL<sup>2</sup></span>
+    <span class="eyebrow">Teaching &amp; Learning with AI &mdash; Orlando &middot; June 12, 2026</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>From detecting to mentoring<span class="dot">.</span></h1>
+      <p class="sub">Teaching for trust and learning in the age of AI</p>
+      <p class="lede">Thank you for spending part of your day thinking with us about what it means to move from policing to mentoring. Everything we explored is gathered here — why students cheat, the mentoring moves for each stage of a course, and the practical tools behind them — ready to adapt in your own teaching. <strong>Take what's useful.</strong></p>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule" id="resources"></div>
+
+  <!-- 1 · SLIDES -->
+  <section class="res">
+    <div class="wrap">
+      <h2>The session slides<span class="dot">.</span></h2>
+      <p>The full deck as a PDF — the two postures, the eleven reasons students cheat, and the first-week, first-month, and long-term mentoring moves.</p>
+      <!-- Place slides.pdf in this same repo folder; relative link below will resolve on GitHub Pages -->
+      <a class="btn" href="./slides.pdf">Open the slides (PDF) <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <!-- 2 · LEARNER INFORMATION SURVEY -->
+  <section class="res">
+    <div class="wrap">
+      <h2>The learner information survey<span class="dot">.</span></h2>
+      <p>A sample Canvas survey for the first week — a low-stakes way to learn who your students are, what they're managing outside class, and how they already use AI. Adapt the questions freely for your own course and LMS.</p>
+      <a class="btn" href="https://docs.google.com/document/d/1eI8ar3gazFLA_9aJdXW81nNsZJKa8nHhGf1y9I_MMDo/edit?usp=sharing">Open the survey <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <!-- 3 · ELEVEN REASONS MATRIX -->
+  <section class="res">
+    <div class="wrap">
+      <h2>The eleven-reasons mentoring matrix<span class="dot">.</span></h2>
+      <p>The eleven reasons students cheat, each mapped to what it means, what contributes to it, and the "Integrity Builders" that offset it — a planning matrix for building integrity into a course from the first week through the long term.</p>
+      <p class="cite">Adapted from Bertram Gallant, T., &amp; Rettinger, D. A. (2025). <em>The opposite of cheating: Teaching for integrity in the age of AI.</em></p>
+      <a class="btn rose" href="https://docs.google.com/document/d/1Pl-k_1MZJAByacGT_9fVgFLUt7OFtf4f5AiWxmbZerw/edit?usp=sharing">Open the matrix <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <!-- 3 · GUARDRAIL PROMPT LIBRARY -->
+  <section class="res">
+    <div class="wrap">
+      <h2>The guardrail prompt library<span class="dot">.</span></h2>
+      <p>A faculty resource for building student agency with AI — a master guardrail prompt, discipline-specific prompts, executive-function supports, and syllabus language. Copy and personalize for your courses.</p>
+      <!-- Confirmed: same guardrail prompt library as the Lilly gift -->
+      <a class="btn" href="https://docs.google.com/document/d/1JXOGM3bCO37cRWAm5fiJ5qbMCuwZZFu4BNJTFOc9GGs/edit?usp=sharing">Open the prompt library <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <!-- 4 · THE RESEARCH -->
+  <section class="res">
+    <div class="wrap">
+      <h2>The research behind it<span class="dot">.</span></h2>
+      <p>This session draws on a two-year, mixed-methods study of how and why U.S. undergraduates integrate generative AI into their learning. The full study — quantitative findings and all sixteen interviews — is available through ProQuest.</p>
+      <p class="cite">Alstot, M. (2026). <em>Generative artificial intelligence and the metaliterate learner: A mixed methods study of AI-literacy and US undergraduate students' interaction within an AI-integrated knowledge economy</em> [Doctoral dissertation, Pepperdine University]. ProQuest Dissertations and Theses Global.</p>
+      <a class="btn rose" href="https://www.proquest.com/docview/3331840735">Read the dissertation on ProQuest <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="closing">
+  <div class="wrap">
+    <span class="mark">HITL<sup>2</sup></span>
+    <h2>The mentoring move starts with one conversation.</h2>
+    <p class="tag">Thank you for being part of the learning loop.</p>
+    <div class="people">
+      <div class="person">
+        <div class="name">Megan Alstot, Ph.D.</div>
+        <div class="role">Academy for Teaching &amp; Learning, Baylor University</div>
+        <a href="mailto:megan_alstot@baylor.edu">megan_alstot@baylor.edu</a>
+      </div>
+      <div class="person">
+        <div class="name">Zhuo Chen</div>
+        <div class="role">Educational Researcher, Ithaka S+R</div>
+        <a href="mailto:zhuo.chen@ithaka.org">zhuo.chen@ithaka.org</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
