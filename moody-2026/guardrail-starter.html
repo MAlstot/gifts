@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guardrail Starters — Continuum × 4Ds</title>
+<style>
+  :root{--green:#154734;--gold:#FFB81C;--lgreen:#e9f1ec;--sgold:#fdf3dc;--ink:#222;--mid:#585858;--line:#c9d6cf;--golddk:#6b4c00;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--lgreen);padding:16px;font-size:16px;line-height:1.55;}
+  .wrap{max-width:900px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 28px;}
+  h1{color:var(--green);font-size:1.4rem;margin:0 0 4px;}
+  h2{color:var(--green);font-size:1.05rem;margin:22px 0 8px;}
+  .sub{color:var(--mid);font-size:.95rem;margin:0 0 8px;}
+  .tagline{font-style:italic;color:var(--green);font-weight:600;margin:8px 0 14px;}
+  .levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:6px 0 4px;}
+  .levels button{font:inherit;font-size:.9rem;border:2px solid var(--green);background:#fff;color:var(--green);border-radius:10px;padding:10px 8px;cursor:pointer;text-align:left;}
+  .levels button .lvl{display:block;font-weight:700;font-size:.8rem;letter-spacing:.04em;}
+  .levels button .nm{display:block;font-weight:700;}
+  .levels button[aria-pressed="true"]{background:var(--green);color:#fff;}
+  .dfilters{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 4px;}
+  .dfilters button{font:inherit;font-size:.85rem;font-weight:600;border:2px solid var(--green);background:#fff;color:var(--green);border-radius:999px;padding:6px 14px;cursor:pointer;}
+  .dfilters button[aria-pressed="true"]{background:var(--green);color:#fff;}
+  button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  .leveldesc{background:var(--lgreen);border-left:5px solid var(--green);border-radius:0 8px 8px 0;padding:10px 14px;margin:14px 0;font-size:.95rem;}
+  .card{border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;margin:12px 0;padding:14px 16px;}
+  .card h3{margin:0 0 2px;color:var(--green);font-size:1rem;}
+  .card .dq{font-style:italic;color:var(--mid);font-size:.9rem;margin:0 0 10px;}
+  .rail{background:#f7f7f4;border:1px dashed var(--mid);border-radius:8px;padding:10px 12px;font-size:.95rem;white-space:pre-wrap;}
+  .why{background:var(--sgold);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;margin:10px 0 0;font-size:.92rem;}
+  .why strong{color:var(--golddk);}
+  .adapt{color:var(--mid);font-size:.88rem;font-style:italic;margin:8px 0 0;}
+  .copybtn{font:inherit;font-size:.85rem;font-weight:600;border:2px solid var(--green);background:#fff;color:var(--green);border-radius:8px;padding:6px 13px;cursor:pointer;margin-top:10px;}
+  .copybtn:hover{background:var(--lgreen);}
+  .next{background:var(--green);color:#fff;border-radius:10px;padding:16px 18px;margin:20px 0 6px;}
+  .next h2{color:var(--gold);margin:0 0 6px;font-size:1.05rem;}
+  .next p{margin:0 0 8px;font-size:.95rem;}
+  .next a{color:var(--gold);font-weight:700;}
+  .foot{font-size:.85rem;color:var(--mid);margin-top:14px;}
+  .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  [aria-live]{min-height:1.2em;font-size:.9rem;color:var(--green);font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Guardrail Starters</h1>
+  <p class="sub">AI Literacy Continuum × the 4Ds of AI Fluency &middot; Academy for Teaching &amp; Learning</p>
+  <p class="tagline">Pick your assignment&rsquo;s continuum level. Get guardrail language that keeps students working at that level &mdash; with the <em>why</em> students deserve.</p>
+  <p>These are <strong>starters, not finished policy</strong> &mdash; adapt the bracketed pieces to your discipline and assignment, then <strong>stress test</strong> the revised assignment in the AI tool your students actually use (your learner survey tells you which).</p>
+
+  <h2 id="lv-label">Step 1 &middot; Where does this assignment sit on the continuum?</h2>
+  <div class="levels" id="levels" role="group" aria-labelledby="lv-label"></div>
+  <div class="leveldesc" id="leveldesc" aria-live="polite"></div>
+
+  <h2 id="d-label">Step 2 &middot; Show the rails for&hellip;</h2>
+  <div class="dfilters" id="dfilters" role="group" aria-labelledby="d-label"></div>
+
+  <div id="cards"></div>
+  <p aria-live="polite" id="copynote"></p>
+
+  <div class="next">
+    <h2>Step 3 &middot; Now stress test it</h2>
+    <p>Rails look solid on paper and leak in practice. Paste your revised assignment into the <strong>Assignment Integrity Stress Test</strong> and run it through seven students having a bad day &mdash; in the tool and version your students report using most. Over there you can run it once, build a personalized version, or save it as a reusable Copilot skill.</p>
+    <p><a href="copilot-paste-prompt.html">Go to the stress test &rarr;</a></p>
+  </div>
+
+  <p class="foot">Continuum: AI Literacy Continuum (No AI Use &rarr; AI Innovation). Framework: Dakan, Feller, &amp; Anthropic (2025), <em>AI Fluency</em>, CC BY-NC-SA 4.0. Reasons &amp; integrity-builder lens: Bertram Gallant &amp; Rettinger (2025), <em>The Opposite of Cheating</em>. Questions or a discipline-specific version: megan_alstot@baylor.edu · Original materials CC BY-NC-SA 4.0 — see the Attribution &amp; License page in the gift.</p>
+</div>
+
+<script>
+var LEVELS=[
+ {k:"L1",nm:"No AI Use",d:"A deliberate pedagogical choice — not a default and not distrust. The thinking this assignment builds is the product, so nothing is delegated. Your job is to make the why visible and give tempted students a legitimate door.",
+  rails:{
+   Delegation:{rail:"ASSIGNMENT LANGUAGE\nThis assignment is an AI-free zone — by design, not distrust. The skill it builds — [name the kernel: e.g., close reading of primary sources] — is the product. Delegating any part of it would hand away exactly what you're here to grow.",
+    why:"A named why turns a rule into a reason — and disarms the “this is just busywork” rationalization before it starts.",
+    adapt:"Name the kernel in your discipline's language. If AI is welcome elsewhere in your course, say where — consistency builds trust."},
+   Description:{rail:"ASSIGNMENT LANGUAGE\nIf you feel the pull to open an AI tool during this assignment, treat that as a signal, not a shortcut: bring the struggle to me, to office hours, or to the discussion board. Asking for help is never a violation in this course.",
+    why:"The Doubter and the 11 PM Procrastinator misuse AI when it's the only door open. This rail builds another door.",
+    adapt:"Swap in your actual help channels and response times — an unanswered door doesn't count."},
+   Discernment:{rail:"ASSIGNMENT LANGUAGE\nThis is where your own detector gets built. The knowledge you earn here — without AI — is what will later let you judge when AI output is wrong, biased, or generic. Experts can smell a hallucination; this assignment is how you become one.",
+    why:"Frames No-AI work as the foundation of future AI fluency — students hear investment, not prohibition.",
+    adapt:"Point to the specific later course, project, or professional task where their judgment will be tested."},
+   Diligence:{rail:"ASSIGNMENT LANGUAGE\nMy AI expectation for this assignment: no AI use at any stage, including brainstorming and polishing. This protects [licensure readiness / exam performance / your clinical judgment]. If you're ever unsure whether something counts, ask first — asking is never a violation.",
+    why:"An explicit, assignment-level line removes the ambiguity the Line-Guesser falls into. Silence reads as permission.",
+    adapt:"Fill the bracket with the real stake in your field. Repeat the line where students will actually see it: the brief, not just the syllabus."}
+  }},
+ {k:"L2",nm:"Limited AI Use",d:"AI is permitted for specific, narrow tasks — brainstorming, grammar, concept explanations — while the core work stays student-owned. Your job is to name the allowed uses precisely; anything unlisted defaults to ask-first.",
+  rails:{
+   Delegation:{rail:"ASSIGNMENT LANGUAGE\nAI may be used ONLY for: [brainstorming angles · checking grammar and clarity · explaining concepts from the readings]. Everything else — [the kernel: your argument, your analysis, your words] — stays yours. If a use isn't on this list, it isn't allowed yet: ask me first.",
+    why:"A positive list beats a prohibition list — the Line-Guesser can't read ambiguity as permission when the allowed uses are named.",
+    adapt:"Keep the list short (2–3 uses). Every item you add is a line you'll need to hold."},
+   Description:{rail:"STUDENT RAIL — students paste this to start any allowed AI session\nI'm a graduate student working on [assignment]. Give me questions, angles, and counterpoints only. Do not write sentences for my submission. If I ask you to draft something, remind me of this rail instead.",
+    why:"The last sentence makes the rail self-enforcing — students practice setting boundaries with AI, which is the fluency you're actually teaching.",
+    adapt:"Have students build this once in class, together, so the first time isn't at 11 PM alone."},
+   Discernment:{rail:"ASSIGNMENT LANGUAGE\nBring one AI output you generated (within the allowed uses) to [class / the discussion board] and evaluate it in 3–4 sentences: What did it get right? What did it get wrong or say too generically? What did it miss that your reading caught?",
+    why:"Turns permitted AI use into discernment practice — and quietly shows the room that AI output is a starting point, not an answer.",
+    adapt:"Works async as a discussion prompt; the “what your reading caught” clause keeps the reading load honest."},
+   Diligence:{rail:"ASSIGNMENT LANGUAGE\nAdd one line before your references: “During this work I used [tool] to [brainstorm angles / check grammar] on [date].” That's it — one sentence. Disclosure here is scholarly transparency, the same habit journals now require. It is never a confession.",
+    why:"Normalizing small disclosures now builds the professional habit — and makes the undisclosed uses conspicuous by contrast.",
+    adapt:"Show a filled example in your own voice. Students copy what they see, not what they're told."}
+  }},
+ {k:"L3",nm:"Collaborative AI Use",d:"Students partner with AI through the work — but the student drafts first and AI responds. Who writes first decides who's thinking. Your job is to protect draft-first order and grade the student's judgment about AI feedback.",
+  rails:{
+   Delegation:{rail:"ASSIGNMENT LANGUAGE\nOrder matters: you draft first, from your reading and your thinking. Then AI responds to YOUR work — never the reverse. Starting from an AI draft puts you downstream of the model's framing; starting from your draft keeps you upstream, where the learning happens.",
+    why:"The mode choice is the real delegation decision — generate-first is automation drift wearing a collaboration costume.",
+    adapt:"Pair with a visible checkpoint (outline or rough draft submitted) so draft-first is structural, not honor-system."},
+   Description:{rail:"STUDENT RAIL — students paste this with their draft\nAct as a critical reviewer of the draft below. Flag leading language, unsupported claims, gaps in logic, and places a skeptical reader would push back. Do not rewrite anything. Ask me clarifying questions before suggesting any changes. I keep the pen.",
+    why:"“Flag, don't fix” keeps the cognitive work with the learner — AI becomes the peer reviewer every student deserves and few get.",
+    adapt:"Swap the flag list for your rubric's language so AI feedback and your feedback speak the same terms."},
+   Discernment:{rail:"ASSIGNMENT LANGUAGE\nFor each AI flag you act on: note “accepted — because ___” or “rejected — because ___” in the margin (3–6 words is fine). Your judgment about the feedback is part of the graded work. You know your context; the AI does not.",
+    why:"Grading the accept/reject reasoning makes discernment visible — and impossible to delegate.",
+    adapt:"Cap it (e.g., annotate your five most significant decisions) so it stays thinking, not paperwork."},
+   Diligence:{rail:"ASSIGNMENT LANGUAGE\nSubmit your AI conversation log (share link or export) alongside the final. It's your process evidence and your protection: a strong log SHOWS your thinking developing. There is no penalty for what an honest log contains.",
+    why:"Process visibility is what separates AI-as-collaborator from AI-as-ghost-writer — and protects the student who did it right.",
+    adapt:"Tell students exactly how to export a link in the tools they use. Friction here becomes non-compliance."}
+  }},
+ {k:"L4",nm:"Integrated AI Use",d:"AI functions as a professional tool inside the workflow, chosen and directed by the student. Your job is to define the human deliverable — the judgment that may not be delegated — and require professional-grade verification and disclosure.",
+  rails:{
+   Delegation:{rail:"ASSIGNMENT LANGUAGE\nChoose your tools and decide what to hand off, as a professional in [field] would. But before you open anything, write one sentence at the top of your workflow plan: “The part I am not delegating is ___.” In this assignment, the human deliverable is [the interpretation / the recommendation / the design decision].",
+    why:"Professionals decide delegation boundaries before the tool shapes the work — that pre-commitment is the integrity move.",
+    adapt:"Name the human deliverable in your rubric's heaviest-weighted row so the grade and the rail agree."},
+   Description:{rail:"STUDENT RAIL — students adapt and paste\nAct as [professional role: research librarian / data analyst / instructional designer] supporting my project on [topic]. I retain decision authority. Present options with tradeoffs rather than single answers, ask before recommending, and cite or link every source you rely on.",
+    why:"Role, authority, tradeoffs, sources — the four clauses that turn a chatbot into a colleague who knows their lane.",
+    adapt:"Build a discipline-specific version with students once; they'll reuse the pattern in industry."},
+   Discernment:{rail:"ASSIGNMENT LANGUAGE\nEvery load-bearing claim that passed through AI gets verified against a primary source, with a brief verification note: “checked [claim] against [source].” AI-assisted work that ships unverified isn't integrated practice — it's outsourced judgment.",
+    why:"Verification notes make discernment auditable — the professional habit that separates tool users from tool-dependents.",
+    adapt:"Define “load-bearing” for your field: statistics, dosages, case citations, code that touches data."},
+   Diligence:{rail:"ASSIGNMENT LANGUAGE\nInclude a professional AI-use statement in the format [discipline norm / journal style]: which tools and versions, what they did, and what remained human work. Model: “The author used [tool] to [task]; all analysis and conclusions are the author's own.”",
+    why:"Journals, employers, and licensing bodies increasingly require exactly this — practicing it here is workforce preparation, not compliance theater.",
+    adapt:"Link one real disclosure from your field's flagship journal as the exemplar."}
+  }},
+ {k:"L5",nm:"AI Innovation",d:"Students push into novel AI uses — new methods, new products, new disciplinary questions — and author their own rails before they run. Your job is to grade the rail-setting and the failure analysis as rigorously as the innovation.",
+  rails:{
+   Delegation:{rail:"ASSIGNMENT LANGUAGE\nPropose an AI use this course hasn't tried — a method, product, or question that goes beyond our established workflows. Before you run anything: write your own delegation boundary. What will you not hand off, and why does that boundary protect the contribution that makes this YOURS?",
+    why:"At the innovation level, students set the rails — which is the highest form of the fluency, and the hardest to fake.",
+    adapt:"Approve proposals at a checkpoint before execution; the boundary-setting conversation is the teaching moment."},
+   Description:{rail:"STUDENT DELIVERABLE\nDesign the master guardrail prompt for your project — the boundary-setting instruction you give AI before any work begins — and defend it in one paragraph: what does each clause protect, and what failure did you design it against?",
+    why:"A defended guardrail proves the student understands both the tool's failure modes and their own learning goals.",
+    adapt:"Share the class's guardrails openly afterward — a peer library of rails is a course artifact worth keeping."},
+   Discernment:{rail:"ASSIGNMENT LANGUAGE\nStress the output until it breaks, and report the break: where does your novel AI use hallucinate, bias, flatten nuance, or fail your discipline's standards of evidence? The failure analysis is a graded section of the deliverable — innovation without it is a demo, not scholarship.",
+    why:"Requiring the break-point report keeps innovation tethered to disciplinary rigor — and makes uncritical AI enthusiasm structurally impossible.",
+    adapt:"Give the failure analysis its own rubric row, weighted enough to matter."},
+   Diligence:{rail:"ASSIGNMENT LANGUAGE\nDocument methods-style, reproducible by a peer: tools and versions, prompts and iterations, what was AI-generated vs. human-authored at each stage, and your data/privacy decisions. If a peer can't reproduce your pipeline, it isn't documented.",
+    why:"Reproducibility is the discipline's immune system — it's what lets novel AI work be trusted, cited, and built upon.",
+    adapt:"An appendix template (even a table) doubles completion rates on this. Provide one."}
+  }}
+];
+var DQ={Delegation:"What is handed to AI — and what may never be?",Description:"How do students talk to AI — and where do the rails go?",Discernment:"How is AI output judged — and who shows the judging?",Diligence:"Who is responsible — and how is that visible?"};
+var DS=["Delegation","Description","Discernment","Diligence"];
+var curLevel=1, curD="All four Ds";
+var $=function(id){return document.getElementById(id);};
+
+var lbox=$("levels");
+LEVELS.forEach(function(L,i){
+  var b=document.createElement("button"); b.type="button";
+  b.innerHTML='<span class="lvl">LEVEL '+(i+1)+'</span><span class="nm">'+L.nm+'</span>';
+  b.setAttribute("aria-pressed", i===curLevel?"true":"false");
+  b.addEventListener("click",function(){ curLevel=i; syncLevels(); render(); });
+  lbox.appendChild(b);
+});
+function syncLevels(){ Array.prototype.forEach.call(lbox.children,function(c,i){ c.setAttribute("aria-pressed", i===curLevel?"true":"false"); }); }
+
+var dbox=$("dfilters");
+["All four Ds"].concat(DS).forEach(function(d){
+  var b=document.createElement("button"); b.type="button"; b.textContent=d;
+  b.setAttribute("aria-pressed", d===curD?"true":"false");
+  b.addEventListener("click",function(){ curD=d; Array.prototype.forEach.call(dbox.children,function(c){ c.setAttribute("aria-pressed", c.textContent===curD?"true":"false"); }); render(); });
+  dbox.appendChild(b);
+});
+
+function copyText(t,btn){
+  var done=function(ok){ $("copynote").textContent = ok ? "Copied to clipboard." : "Copy failed — select the text and copy manually."; if(ok){ btn.textContent="Copied ✓"; setTimeout(function(){btn.textContent="Copy this rail";},1600);} };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(function(){done(true);},function(){done(false);}); }
+  else{ var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); try{ done(document.execCommand("copy")); }catch(e){ done(false);} document.body.removeChild(ta); }
+}
+
+function render(){
+  var L=LEVELS[curLevel];
+  $("leveldesc").innerHTML="<strong>Level "+(curLevel+1)+" · "+L.nm+".</strong> "+L.d;
+  var box=$("cards"); box.innerHTML="";
+  DS.forEach(function(d){
+    if(curD!=="All four Ds" && d!==curD) return;
+    var r=L.rails[d];
+    var c=document.createElement("div"); c.className="card";
+    c.innerHTML="<h3>"+d+"</h3><p class='dq'>"+DQ[d]+"</p>"
+      +"<div class='rail'>"+r.rail.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</div>"
+      +"<div class='why'><strong>The why (share it with students):</strong> "+r.why+"</div>"
+      +"<p class='adapt'>Adapt it: "+r.adapt+"</p>";
+    var btn=document.createElement("button"); btn.type="button"; btn.className="copybtn"; btn.textContent="Copy this rail";
+    btn.addEventListener("click",function(){ copyText(r.rail+"\n\nWHY (student-facing): "+r.why,btn); });
+    c.appendChild(btn);
+    box.appendChild(c);
+  });
+}
+render();
+</script>
+</body>
+</html>

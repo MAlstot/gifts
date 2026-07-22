@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Own Personas — Template</title>
+<style>
+  :root{--green:#154734;--gold:#FFB81C;--lgreen:#e9f1ec;--sgold:#fdf3dc;--ink:#222;--mid:#585858;--line:#c9d6cf;--golddk:#6b4c00;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--lgreen);padding:16px;font-size:16px;line-height:1.6;}
+  .wrap{max-width:860px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;}
+  h1{color:var(--green);font-size:1.45rem;margin:0 0 10px;}
+  h2{color:var(--green);font-size:1.15rem;margin:26px 0 8px;border-bottom:2px solid var(--lgreen);padding-bottom:4px;}
+  h3{color:var(--green);font-size:1rem;margin:18px 0 6px;}
+  a{color:var(--green);font-weight:600;}
+  a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  blockquote{background:var(--sgold);border-left:4px solid var(--gold);margin:14px 0;padding:10px 14px;border-radius:0 8px 8px 0;}
+  blockquote p{margin:0;}
+  code{background:#f4f4f1;padding:1px 5px;border-radius:4px;font-size:.92em;}
+  pre{background:#f7f7f4;border:1px dashed var(--mid);border-radius:8px;padding:14px 16px;overflow-x:auto;white-space:pre-wrap;font-size:.9rem;line-height:1.5;}
+  pre code{background:none;padding:0;}
+  table{border-collapse:collapse;margin:10px 0;width:100%;}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;font-size:.95rem;}
+  th{background:var(--lgreen);color:var(--green);}
+  hr{border:0;border-top:1px solid var(--line);margin:22px 0;}
+  .backlink{display:inline-block;margin-bottom:14px;font-size:.9rem;}
+  .copyall{font:inherit;font-size:.95rem;font-weight:700;border:2px solid var(--green);background:var(--green);color:#fff;border-radius:8px;padding:10px 18px;cursor:pointer;margin:10px 0;}
+  .copyall:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  [aria-live]{min-height:1.2em;color:var(--green);font-weight:600;font-size:.9rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="backlink" href="index.html">&larr; Back to the workshop gift page</a>
+<h1>Build Your Own Personas — Customization Template</h1>
+<p>The seven personas in the Assignment Integrity Stress Test are research-backed composites. But you know your students. This template lets you replace or extend the personas with students from <em>your</em> course — which makes the stress test dramatically more honest.</p>
+<p><strong>Where to get the raw material:</strong> your learner information survey (confidence, anxiety, time pressures, which AI tools they actually use and how), patterns from past semesters, and your discipline's specific pressure points (licensure exams, portfolio reviews, cohort dynamics, working-professional schedules).</p>
+<p><strong>Privacy note (Diligence):</strong> personas are composites, never real, identifiable students. No names, no identifying details, and never paste real student data — survey responses included — into an unprotected AI tool. Use Baylor's protected Copilot, and aggregate before you paste (e.g., "40% of my students report low confidence in academic writing").</p>
+<hr />
+<h2>The persona recipe</h2>
+<p>Every persona needs four ingredients. Fill in one card per persona:</p>
+<pre><code>PERSONA NAME: The ___________________
+  (A memorable label for the pressure, not the person)
+
+ROOTED IN (pick 1–2 of the eleven reasons):
+  self-efficacy · expectations · values · moral disengagement ·
+  contract cheating · peer effects · narcissism · motivation ·
+  procrastination · instructor effects · cost-benefit
+
+BAD DAY: One or two sentences. What is true for this student the week
+  your assignment is due? (Time, confidence, competing obligations,
+  what they believe about the rules, what tools are open in the
+  other tab.)
+
+WHAT THEY SCAN FOR: What in the assignment text will this student
+  read closely — and what gap or ambiguity will they exploit or
+  fall into? Be specific to how they'd misuse AI.
+</code></pre>
+<h3>Worked example (graduate, online, working professionals)</h3>
+<pre><code>PERSONA NAME: The Sunday-Night Director
+
+ROOTED IN: procrastination + cost-benefit
+
+BAD DAY: Full-time K-12 administrator in an online EdD. It's Sunday,
+  9 PM, the discussion post is due at midnight, and a board meeting
+  ate the weekend. Copilot is already open from work.
+
+WHAT THEY SCAN FOR: Whether anyone will actually read this post
+  closely. Whether the prompt could be answered without the readings.
+  If the post only needs to &quot;sound right,&quot; AI writes it in 40 seconds
+  — and next week's post, too.
+</code></pre>
+<h3>Prompts to help you draft (paste into your AI with survey aggregates)</h3>
+<ul>
+<li>"Here are anonymized, aggregated patterns from my learner survey: [paste].
+  Draft 3 persona cards using the recipe above, each rooted in different
+  reasons from the eleven, specific to a [discipline] course delivered
+  [modality]."</li>
+<li>"My discipline's specific integrity pressure points are: [licensure,
+  clinical hours, cohort culture...]. Which of the eleven reasons do these
+  amplify, and what persona would carry them?"</li>
+</ul>
+<hr />
+<h2>Swapping personas into the stress test</h2>
+<p>In the stress-test prompt (or Skill), replace any of the seven default personas with yours — <strong>but keep the coverage rule: across your final persona set, all eleven reasons must appear at least once.</strong> A quick tally table helps:</p>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Covered by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Self-efficacy</td>
+<td></td>
+</tr>
+<tr>
+<td>Expectations</td>
+<td></td>
+</tr>
+<tr>
+<td>Values</td>
+<td></td>
+</tr>
+<tr>
+<td>Moral disengagement</td>
+<td></td>
+</tr>
+<tr>
+<td>Contract cheating</td>
+<td></td>
+</tr>
+<tr>
+<td>Peer effects</td>
+<td></td>
+</tr>
+<tr>
+<td>Narcissism</td>
+<td></td>
+</tr>
+<tr>
+<td>Motivation</td>
+<td></td>
+</tr>
+<tr>
+<td>Procrastination</td>
+<td></td>
+</tr>
+<tr>
+<td>Instructor effects</td>
+<td></td>
+</tr>
+<tr>
+<td>Cost-benefit</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Keep the three failure layers and the severity/rebuild steps unchanged — the personas are the lens; the machinery is the test.</p>
+<hr />
+<h2>Want help?</h2>
+<p>Building a persona set for your course or program — or a stress-test workshop for your whole team — is exactly the kind of thing I'm here for. Email <strong>megan_alstot@baylor.edu</strong> to book a consultation.</p>
+<p><em>Adapted from Doan Winkel's lesson-plan-review skill · Reasons from Bertram Gallant &amp; Rettinger (2025), The Opposite of Cheating.</em></p>
+
+</div>
+</body>
+</html>

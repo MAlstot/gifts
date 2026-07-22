@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Assignment Integrity Stress Test</title>
+<style>
+  :root{--green:#154734;--gold:#FFB81C;--lgreen:#e9f1ec;--sgold:#fdf3dc;--ink:#222;--mid:#585858;--line:#c9d6cf;--golddk:#6b4c00;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--lgreen);padding:16px;font-size:16px;line-height:1.6;}
+  .wrap{max-width:880px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;}
+  h1{color:var(--green);font-size:1.45rem;margin:0 0 6px;}
+  h2{color:var(--green);font-size:1.15rem;margin:26px 0 8px;}
+  .sub{color:var(--mid);font-size:.95rem;margin:0 0 10px;}
+  .backlink{display:inline-block;margin-bottom:14px;font-size:.9rem;color:var(--green);font-weight:600;}
+  a{color:var(--green);font-weight:600;}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  .tip{background:var(--sgold);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 14px;font-size:.93rem;margin:12px 0;}
+  .path{border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:16px 20px;margin:16px 0;}
+  .path h2{margin-top:0;}
+  .pathtag{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:2px 12px;font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:6px;}
+  pre{background:#f7f7f4;border:1px dashed var(--mid);border-radius:8px;padding:14px 16px;overflow-x:auto;white-space:pre-wrap;font-size:.88rem;line-height:1.5;font-family:Consolas,Menlo,monospace;}
+  .copyall{font:inherit;font-size:.95rem;font-weight:700;border:2px solid var(--green);background:var(--green);color:#fff;border-radius:8px;padding:10px 18px;cursor:pointer;margin:8px 8px 8px 0;}
+  .copyall.secondary{background:#fff;color:var(--green);}
+  label{display:block;font-weight:700;color:var(--green);margin:14px 0 4px;font-size:.95rem;}
+  .hint{font-weight:400;color:var(--mid);font-size:.85rem;}
+  input[type=text],textarea,select{width:100%;font:inherit;font-size:.95rem;padding:9px 11px;border:1.5px solid var(--line);border-radius:8px;color:var(--ink);background:#fff;}
+  textarea{min-height:70px;resize:vertical;}
+  [aria-live]{min-height:1.2em;color:var(--green);font-weight:600;font-size:.9rem;}
+  .foot{font-size:.85rem;color:var(--mid);margin-top:16px;}
+  details{margin:10px 0;}
+  summary{cursor:pointer;font-weight:700;color:var(--green);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="index.html">&larr; Back to the workshop gift page</a>
+  <h1>The Assignment Integrity Stress Test</h1>
+  <p class="sub">Seven students, each on a bad day, each built from the eleven reasons students cheat &mdash; run against <em>your</em> assignment.</p>
+  <p>Works in <strong>Microsoft Copilot</strong> (Baylor-protected &mdash; look for the green shield), Claude, ChatGPT, or Gemini. Two ways in: grab the full prompt as-is, or build a personalized version with your context already baked in.</p>
+  <div class="tip"><strong>Run it where your students live.</strong> Use Baylor's protected Copilot so your drafts stay institutionally protected &mdash; and test in the tool and version your learner survey says students actually use. Choosing the protected tool is itself a Diligence decision.</div>
+
+  <!-- ============ PATH A: QUICK ============ -->
+  <div class="path">
+    <span class="pathtag">PATH A &middot; QUICK</span>
+    <h2>Copy the full prompt</h2>
+    <p>Paste it into a new chat; it will ask you for your assignment and context, then run the test.</p>
+    <button type="button" class="copyall" id="copyQuick">Copy the full prompt</button>
+    <p aria-live="polite" id="noteQuick"></p>
+    <details>
+      <summary>Preview the full prompt</summary>
+      <pre id="quickPrompt"></pre>
+    </details>
+  </div>
+
+  <!-- ============ PATH B: GUIDED ============ -->
+  <div class="path">
+    <span class="pathtag">PATH B &middot; GUIDED</span>
+    <h2>Build your personalized prompt</h2>
+    <p>Answer a few things; we'll assemble a prompt with your context pre-loaded, so the AI skips the interview and goes straight to work when you paste your assignment.</p>
+
+    <label for="bLevel">1 &middot; Your assignment's AI literacy level</label>
+    <select id="bLevel">
+      <option value="0">Level 1 &middot; No AI Use &mdash; a deliberate design choice</option>
+      <option value="1" selected>Level 2 &middot; Limited AI Use &mdash; narrow, named tasks only</option>
+      <option value="2">Level 3 &middot; Collaborative AI Use &mdash; student drafts, AI critiques</option>
+      <option value="3">Level 4 &middot; Integrated AI Use &mdash; AI as a professional tool</option>
+      <option value="4">Level 5 &middot; AI Innovation &mdash; students design novel uses, self-set rails</option>
+    </select>
+
+    <label for="bKernel">2 &middot; The kernel of cognition <span class="hint">&mdash; finish the sentence: &ldquo;The thinking this assignment exists to build is&hellip;&rdquo;</span></label>
+    <input type="text" id="bKernel" placeholder="e.g., comparing leadership frameworks against evidence from their own organization">
+
+    <label for="bDiscipline">3 &middot; Discipline, course level, and modality</label>
+    <input type="text" id="bDiscipline" placeholder="e.g., EdD Learning &amp; Organizational Change · online · asynchronous">
+
+    <label for="bStudents">4 &middot; What you know about your students <span class="hint">(optional &mdash; aggregated patterns only, never identifiable data)</span></label>
+    <textarea id="bStudents" placeholder="e.g., working professionals; ~40% report low confidence in academic writing; most-used tool is free-tier ChatGPT; several report starting assignments in the final few days"></textarea>
+
+    <label for="bOutcomes">5 &middot; Learning outcomes <span class="hint">(optional &mdash; paste them if handy)</span></label>
+    <textarea id="bOutcomes" placeholder="e.g., critically evaluate change models; design an evidence-based intervention"></textarea>
+
+    <button type="button" class="copyall" id="buildBtn">Build my prompt</button>
+    <button type="button" class="copyall secondary" id="copyBuilt" hidden>Copy my personalized prompt</button>
+    <p aria-live="polite" id="noteBuilt"></p>
+    <pre id="builtPrompt" hidden></pre>
+  </div>
+
+  <!-- ============ PATH C: KEEP IT ============ -->
+  <div class="path">
+    <span class="pathtag">PATH C &middot; KEEP IT</span>
+    <h2>Save it as a reusable Copilot skill</h2>
+    <p>Ran it once and want it on tap? Copilot can save a workflow like this as a <strong>skill</strong> &mdash; a named recipe in four parts: <strong>Skill Name &middot; Input &middot; Workflow &middot; Constraints</strong>. Save it wherever you build agents (Copilot Studio / agent instructions), or keep it pinned in a doc to paste on demand.</p>
+
+    <details>
+      <summary>See the four-part recipe in a simple worked example</summary>
+      <pre id="exampleSkill">Skill Name: Assignment Alignment Reviewer
+Input:
+- Assignment description
+- Learning outcomes
+Workflow:
+1. Extract assignment requirements.
+2. Compare requirements to outcomes.
+3. Identify gaps.
+4. Generate feedback questions.
+5. Output an alignment report.
+Constraints:
+- Do not rewrite faculty materials.
+- Provide feedback only.</pre>
+      <p>Why it works: the Input names exactly what to paste, the Workflow is numbered thinking steps, and the Constraints draw the boundary &mdash; feedback, never rewriting. Constraints are to your skill what Rails are to student prompts: write them first.</p>
+    </details>
+
+    <p style="margin-top:12px;"><strong>Your stress test, written as a skill</strong> <span class="hint">&mdash; synced to the level you chose in Path B; change it there and this updates.</span></p>
+    <pre id="skillGen"></pre>
+    <button type="button" class="copyall secondary" id="copySkill">Copy this skill</button>
+    <p aria-live="polite" id="noteSkill"></p>
+
+    <details>
+      <summary>Blank recipe: build a skill of your own</summary>
+      <pre id="blankSkill">Skill Name: [Name it — e.g., Case Study Feedback Coach]
+Input:
+- [What you'll paste in — e.g., the assignment as students see it]
+- [Context it needs — e.g., learning outcomes, rubric, your continuum level]
+Workflow:
+1. [Read/extract — what should it pull out first?]
+2. [Compare/analyze — the thinking step]
+3. [Identify — gaps, risks, or misalignments]
+4. [Generate — questions or feedback, not rewrites]
+5. [Output — name the report format you want back]
+Constraints:
+- Do not rewrite faculty materials; provide feedback only.
+- [Your boundary — matched to your assignment's continuum level]
+- Never include identifiable student data.</pre>
+      <button type="button" class="copyall secondary" id="copyBlank">Copy the blank recipe</button>
+      <p>Want help building a discipline-specific skill &mdash; a rubric checker, a case-study coach, a discussion-prompt tester? That's a consultation: <a href="mailto:megan_alstot@baylor.edu">megan_alstot@baylor.edu</a></p>
+    </details>
+  </div>
+
+  <h2>Go further</h2>
+  <ul>
+    <li><a href="assignment-integrity-stress-test-SKILL.md" download>Claude Skill version (SKILL.md)</a> &mdash; add it once to Claude, then just say &ldquo;stress test this assignment.&rdquo;</li>
+    <li><a href="build-your-own-personas.html">Build your own personas</a> &mdash; swap in composites of <em>your</em> students for a far more honest test.</li>
+    <li><a href="guardrail-starter.html">Guardrail Starters</a> &mdash; rails keyed to your level, for every one of the four Ds.</li>
+  </ul>
+
+  <p class="foot">Adapted from Doan Winkel's &ldquo;7 Bad-Day Students&rdquo; lesson-plan-review skill (howtoteachwithai.substack.com), with personas from Bertram Gallant &amp; Rettinger (2025), <em>The Opposite of Cheating</em>. Assembled by Megan Alstot, Academy for Teaching &amp; Learning, Baylor University &mdash; megan_alstot@baylor.edu · Original materials CC BY-NC-SA 4.0 — see the Attribution &amp; License page in the gift.</p>
+</div>
+
+<script>
+var LEVELS=[
+ {n:1,nm:"No AI Use",d:"a deliberate pedagogical choice — nothing is delegated; the why is made visible and AI-resistant design protects the kernel"},
+ {n:2,nm:"Limited AI Use",d:"AI permitted only for specific, named tasks; the core work stays student-owned"},
+ {n:3,nm:"Collaborative AI Use",d:"the student drafts first and AI critiques; the student keeps the pen"},
+ {n:4,nm:"Integrated AI Use",d:"AI as a professional tool inside the workflow; the judgment stays human"},
+ {n:5,nm:"AI Innovation",d:"students design novel AI uses and set their own rails, with faculty approval"}
+];
+
+var BODY =
+"Then stress-test the assignment through 7 student personas, each on a bad day,\n"+
+"built from the eleven research-backed reasons students cheat (Bertram Gallant &\n"+
+"Rettinger, 2025):\n\n"+
+"1. THE DOUBTER (self-efficacy): doesn't believe they can do this; AI feels like\n"+
+"   survival. Looks for practice and feedback before stakes rise.\n"+
+"2. THE LINE-GUESSER (expectations): genuinely unsure what counts as cheating\n"+
+"   here; reads silence or vague policy as permission.\n"+
+"3. THE EFFICIENCY RATIONALIZER (values + moral disengagement): a working\n"+
+"   professional who sees busywork — no visible connection to what they're here\n"+
+"   to develop as a scholar or practitioner; \"everyone does it\" ready to go.\n"+
+"4. THE 11 PM PROCRASTINATOR (procrastination + cost-benefit): deadline tonight;\n"+
+"   a full work week and family obligations ate the runway; calculates upside\n"+
+"   high, risk low, relationship thin.\n"+
+"5. THE GHOST-WRITER SHOPPER (contract cheating): will submit AI output wholesale\n"+
+"   if only the final product is ever seen; authorship undefined.\n"+
+"6. THE NORM READER (peer effects + instructor effects): takes cues from\n"+
+"   classmates and from whether the instructor knows them and reads their work.\n"+
+"7. THE GRADE MAXIMIZER (motivation + narcissism): plays for the grade; suspects\n"+
+"   rules are for others; exploits any product-only design.\n\n"+
+"STEP 0 — STRUCTURAL AUDIT (PASS/FAIL, one line each): Is the why visible? Is\n"+
+"the AI expectation explicit FOR THIS ASSIGNMENT (allowed, forbidden, and the\n"+
+"reason)? Is the kernel protected by design? Is process visible, not just\n"+
+"product? Does the time math work (scaffolded deadlines, a legitimate late\n"+
+"path)? Are stakes distributed (no single cliff)? Does the relationship exist\n"+
+"(a human sees developing work)?\n\n"+
+"STEP 1 — Run every persona through 3 failure layers, pointing to the exact\n"+
+"sentence or gap that breaks (21 checks total):\n"+
+"L1 TEMPTATION & AMBIGUITY: \"Reading this, I'd consider misusing AI because __.\"\n"+
+"L2 KERNEL SURRENDER: \"While working, AI would end up doing the thinking\n"+
+"   because __.\"\n"+
+"L3 EVIDENCE & ACCOUNTABILITY: \"I could submit AI's work with no trace\n"+
+"   because __.\"\n\n"+
+"STEP 2 — Tally: CRITICAL = 3+ personas flagged the same failure (must fix).\n"+
+"HIGH = 2 personas (should fix). LOW = 1 persona. Group by: purpose & framing ·\n"+
+"AI expectations & guardrails · confidence & stakes · process visibility ·\n"+
+"evidence, reflection & disclosure.\n\n"+
+"STEP 3 — REBUILD every CRITICAL and HIGH failure: state the failure, the fix,\n"+
+"and the rewritten section in student-facing language. Rules: mentor, don't\n"+
+"police (no detection tools as fixes); match every guardrail to my declared\n"+
+"continuum level — never demand a higher or lower literacy level than the\n"+
+"assignment declares; every rail ships with a one-sentence student-facing WHY;\n"+
+"protect the kernel structurally (add a visible-thinking artifact if it can be\n"+
+"offloaded silently); fix the time math with scaffolding and grace, not\n"+
+"exhortation. Priority when fixes conflict: Temptation > Kernel > Evidence.\n"+
+"Add where needed: an AI-expectations block (allowed · forbidden · why ·\n"+
+"disclosure line · \"when unsure, ask — asking is never a violation\"), a process\n"+
+"spine of 2–4 low-stakes visible artifacts, and a one-line disclosure students\n"+
+"complete (\"During this work I used [tool] to [do what].\").\n\n"+
+"STEP 4 — SECOND PASS: re-run all 7 personas × 3 layers on the rebuilt\n"+
+"assignment. Pass = zero CRITICAL and ≤2 HIGH remaining with documented\n"+
+"tradeoffs. Repeat until it passes.\n\n"+
+"OUTPUT: PART 1 — Misuse-Pressure Report: (A) structural audit results, (B) a\n"+
+"7×3 persona failure matrix (cell = PASS or the exact break point), (C) the\n"+
+"prioritized failure list. PART 2 — The rebuilt assignment: kernel + level +\n"+
+"what changed, the full student-facing brief with AI-expectations block,\n"+
+"guardrails with their why, process spine, disclosure line, and second-pass\n"+
+"results. Tone throughout: most good assignments invite 2–4 of the eleven\n"+
+"reasons without anyone intending it. This is design, not blame.";
+
+var QUICK_INTRO =
+"You are running an ASSIGNMENT INTEGRITY STRESS TEST. Do not begin until I have\n"+
+"pasted my assignment. First ask me for: (1) the assignment text as students see\n"+
+"it; (2) the kernel of cognition — \"the thinking this assignment exists to build\n"+
+"is ___\"; (3) its AI literacy level: Level 1 No AI Use (deliberate choice),\n"+
+"Level 2 Limited (narrow tasks only), Level 3 Collaborative (I draft, AI\n"+
+"critiques), Level 4 Integrated (AI as professional tool), or Level 5 Innovation\n"+
+"(students design novel uses with self-set rails); (4) discipline, course level,\n"+
+"and modality; (5) anything I know about my students (aggregated learner-survey\n"+
+"patterns — confidence, which AI tools they use; never identifiable data).\n\n";
+
+var $=function(id){return document.getElementById(id);};
+$("quickPrompt").textContent = QUICK_INTRO + BODY;
+
+function copyText(t, noteId){
+  var note=$(noteId);
+  var done=function(ok){ note.textContent = ok ? "Copied — paste it into a new Copilot or Claude chat." : "Copy failed — select the text and copy manually."; };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(function(){done(true);},function(){done(false);}); }
+  else{ var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); try{ done(document.execCommand("copy")); }catch(e){ done(false);} document.body.removeChild(ta); }
+}
+$("copyQuick").addEventListener("click",function(){ copyText($("quickPrompt").textContent,"noteQuick"); });
+
+function buildPrompt(){
+  var L=LEVELS[parseInt($("bLevel").value,10)];
+  var kernel=$("bKernel").value.trim();
+  var disc=$("bDiscipline").value.trim();
+  var stud=$("bStudents").value.trim();
+  var outc=$("bOutcomes").value.trim();
+  return "You are running an ASSIGNMENT INTEGRITY STRESS TEST. Here is my context —\n"
+    +"do not re-ask for it:\n"
+    +"- AI literacy level (the fixed boundary for every suggestion): Level "+L.n+" — "+L.nm+"\n"
+    +"  ("+L.d+").\n"
+    +"- Kernel of cognition: the thinking this assignment exists to build is "+kernel+".\n"
+    +"- Discipline / course / modality: "+(disc||"graduate-level, online")+".\n"
+    +(outc? "- Learning outcomes: "+outc+"\n" : "")
+    +(stud? "- Student context (aggregated, non-identifiable): "+stud+"\n" : "")
+    +"\nAsk me for ONE thing only — the assignment text exactly as students see it —\n"
+    +"then run the full test.\n\n"+BODY;
+}
+$("buildBtn").addEventListener("click",function(){
+  var kernel=$("bKernel").value.trim();
+  if(!kernel){ $("noteBuilt").textContent="One thing first: fill in your kernel sentence (question 2) — the whole test is built around it."; $("bKernel").focus(); return; }
+  $("builtPrompt").textContent=buildPrompt(); $("builtPrompt").hidden=false;
+  $("copyBuilt").hidden=false;
+  $("noteBuilt").textContent="Built. Review it below, then copy.";
+});
+$("copyBuilt").addEventListener("click",function(){ copyText($("builtPrompt").textContent,"noteBuilt"); });
+
+// ---- Path C: skill generator, synced to Path B's level select ----
+function skillText(){
+  var L=LEVELS[parseInt($("bLevel").value,10)];
+  return "Skill Name: Assignment Integrity Stress Test (Level "+L.n+" — "+L.nm+")\n"
+    +"Input:\n"
+    +"- Assignment description, exactly as students see it\n"
+    +"- The kernel of cognition: \"the thinking this assignment exists to build is ___\"\n"
+    +"- Learning outcomes (optional but recommended)\n"
+    +"- Aggregated learner-survey patterns (confidence, AI tools used — no identifiable student data)\n"
+    +"Workflow:\n"
+    +"1. Extract the assignment's requirements, stakes, deadlines, and any stated AI expectations.\n"
+    +"2. Stress-test it through 7 personas built from the eleven reasons students cheat (Bertram Gallant & Rettinger, 2025): the Doubter, the Line-Guesser, the Efficiency Rationalizer, the 11 PM Procrastinator, the Ghost-Writer Shopper, the Norm Reader, the Grade Maximizer — each across 3 failure layers: Temptation & ambiguity; Kernel surrender; Evidence & accountability. Cite the exact sentence or gap that breaks.\n"
+    +"3. Tally severity: CRITICAL = 3+ personas flag the same failure; HIGH = 2; LOW = 1.\n"
+    +"4. For each CRITICAL and HIGH failure, generate feedback questions and suggested guardrail language matched to Level "+L.n+" ("+L.nm+"), every rail with a one-sentence student-facing why.\n"
+    +"5. Output a Misuse-Pressure Report: structural audit, 7×3 persona failure matrix, prioritized failure list, and suggested rails.\n"
+    +"Constraints:\n"
+    +"- Do not rewrite faculty materials; provide feedback, questions, and suggested rails only.\n"
+    +"- Mentor, don't police: never recommend detection tools or surveillance.\n"
+    +"- Never suggest rails above or below Level "+L.n+" — the declared level is the boundary.\n"
+    +"- Never include identifiable student data.";
+}
+function renderSkill(){ $("skillGen").textContent = skillText(); }
+$("bLevel").addEventListener("change", renderSkill);
+$("copySkill").addEventListener("click",function(){ copyText(skillText(),"noteSkill"); });
+$("copyBlank").addEventListener("click",function(){ copyText($("blankSkill").textContent,"noteSkill"); });
+renderSkill();
+</script>
+</body>
+</html>
