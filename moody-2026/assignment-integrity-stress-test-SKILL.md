@@ -1,6 +1,6 @@
 ---
 name: assignment-integrity-stress-test
-description: "Stress-test any assignment through 7 student personas built from the eleven research-backed reasons students cheat (Bertram Gallant & Rettinger, 2025). Find where your assignment invites AI misuse, where it lets AI surrender the thinking, and where AI work could pass without a trace. Outputs a Misuse-Pressure Report plus a rebuilt assignment with guardrails matched to your AI literacy continuum level."
+description: "Stress-test any assignment through 7 student personas built from the eleven research-backed reasons students cheat (Bertram Gallant & Rettinger, 2025). Find where your assignment invites AI misuse, where it lets AI surrender the thinking, and where AI work could pass without a trace. Produces a Misuse-Pressure Report and hands it back to you — it diagnoses; you decide what to change."
 ---
 
 # The Assignment Integrity Stress Test
@@ -19,9 +19,9 @@ Cheating has always existed. AI did not change *why* students cheat — it chang
 
 Take an assignment the user provides and stress-test it through 7 student personas grounded in the eleven reasons students cheat.
 
-Find every integrity failure point. Fix them with integrity builders and guardrails matched to the assignment's declared AI literacy level. Re-test until clean.
+Find every integrity failure point and where it lives. Then **stop and hand the diagnosis back to the faculty member** — they read it and decide what, if anything, to change. This skill diagnoses; it does not rewrite.
 
-**Output format:** Misuse-Pressure Report (what breaks and why) + rebuilt assignment that passes all 7 students, including student-facing guardrail language and the *why* behind each rail.
+**Output format:** the Misuse-Pressure Report (what strains and why), a short summary of the key pattern, and a question back to the faculty member about how they'd like to proceed. No rewritten assignment.
 
 ---
 
@@ -34,7 +34,7 @@ You need these inputs:
 1. **The assignment** — the actual prompt/brief students see. Rough draft is fine.
 2. **The kernel of cognition** — one sentence: "The thinking this assignment exists to build is ___." (What must the student's own mind do for the learning to happen?)
 3. **AI literacy continuum level** — where does this assignment sit?
-   - **Level 1 · No AI Use** (a deliberate pedagogical choice, not a default)
+   - **Level 1 · AI-Free Assignment** (deliberate and task-specific — not a course-wide ban, which is neither feasible nor inclusive)
    - **Level 2 · Limited AI Use** (specific, narrow tasks only)
    - **Level 3 · Collaborative AI Use** (student drafts, AI critiques; student keeps the pen)
    - **Level 4 · Integrated AI Use** (AI as professional tool inside the workflow)
@@ -58,7 +58,7 @@ Before personas, run a fast reality check. Answer PASS/FAIL in bullets:
 - **Stakes are distributed.** No single high-stakes cliff that makes the cost-benefit calculation rational.
 - **The relationship exists.** Somewhere in the arc, the instructor sees or responds to each student's developing work. Students do not cheat people they know.
 
-If any fail, log them as failures to fix during the rebuild.
+If any fail, note them — they will surface in the report as failures for the faculty member to weigh.
 
 ---
 
@@ -121,50 +121,29 @@ Group failures by where they hit: purpose & framing · AI expectations & guardra
 
 ---
 
-## Step 4: Rebuild
+## Step 4: Stop and hand it back
 
-For every CRITICAL and HIGH PRIORITY failure:
+This skill **diagnoses; it does not fix.** Rewriting the assignment for the faculty member takes away the very thing that matters: their reading of the diagnosis, and their decision about how to respond. So once the Misuse-Pressure Report is complete:
 
-1. **State the failure.** Which personas flagged it and what broke.
-2. **State the fix.** Which integrity builder answers it, and why.
-3. **Show the rewrite.** The rebuilt section, in student-facing language.
+1. **Present the report** (see Output format below).
+2. **Name the pattern.** In 2–3 sentences, say what you see across the failures — the one or two patterns that matter most.
+3. **Hand it back.** Ask which weakness the faculty member wants to think about first, and how they'd like to approach it. Then wait. Do not assume, and do not fix ahead of them.
 
-### Rebuild rules
+## Step 5: Offer directions — only when asked
 
-- **Mentor, don't police.** Every fix should read as design and invitation, not surveillance and threat. Detection tools are not fixes.
-- **Match guardrails to the declared continuum level.** A Level 1 (No AI) assignment gets AI-resistant design + the *why* stated openly; a Level 3 gets draft-first structure with "AI critiques, never writes" rails; a Level 5 gets student-authored rails with justification. Never write a rail that demands a higher (or lower) literacy level than the assignment declares.
-- **Every rail ships with its why.** One student-facing sentence: what this rail protects and how it serves their goals. Rails without reasons read as arbitrary — and arbitrary rules feed moral disengagement.
-- **Protect the kernel structurally.** If the thinking can be offloaded invisibly, add an artifact that makes the thinking visible (annotated sources, decision memo, prompt log, viva/voice note, in-class connection).
-- **Fix the time math.** Scaffolded deadlines (outline → draft → final), grace policies, and low-stakes checkpoints beat exhortation every time.
-- **When fixes conflict, prioritize: Temptation & ambiguity > Kernel surrender > Evidence & accountability.** A student who never feels the pull never needs the audit trail.
+If, and only if, the faculty member names a weakness they want to work on, become a thinking partner (not an author):
 
-### Standard components to add when needed
+- Offer **2–3 different directions** they could take — each matched to the assignment's declared continuum level (never a higher or lower level than declared), each with its tradeoff.
+- Present **options, not a finished assignment.** The faculty member chooses the direction and keeps the pen.
+- Point them to the companion tools when useful: the **Design Prompt Starters** for reworking the assignment, and the **Guardrail Starters** for writing the rail once the assignment is settled.
 
-**A. The AI expectations block (for the assignment brief)** — allowed uses · forbidden uses · the why · the disclosure line · what to do when unsure ("ask me — asking is never a violation").
-
-**B. The guardrail starter (student-facing, RADAR-style rails)** — matched to continuum level; see the Guardrail Starter library that accompanies this skill.
-
-**C. The process spine** — 2–4 visible artifacts across the arc (proposal, annotated evidence, draft, prompt log, reflection), each low-stakes, each seen by a human.
-
-**D. The disclosure line** — one sentence students complete: "During this work I used [tool] to [do what]." Normalize it as scholarly transparency, not confession.
-
----
-
-## Step 5: Second pass
-
-Run the rebuilt assignment through all 7 personas again, all 3 layers.
-
-**Pass criteria:**
-- Zero CRITICAL failures remaining
-- No more than 2 HIGH PRIORITY failures remaining (with documented reasoning for why those tradeoffs are acceptable)
-
-If it fails: repeat steps 4 and 5. The assignment is not approved until it passes.
+Directions worth surfacing (as options, never as a mandate): making the kernel's thinking visible with a low-stakes artifact; distributing stakes across scaffolded checkpoints; naming AI expectations explicitly for this assignment; adding a one-line disclosure. Which of these fits — and whether any fits — is the faculty member's call.
 
 ---
 
 ## Output format
 
-### PART 1: MISUSE-PRESSURE REPORT
+Present the **Misuse-Pressure Report**, then the pattern summary and the question back.
 
 **Section A — Structural Audit Results.** Each of the 7 audit questions: PASS or FAIL with a one-line explanation.
 
@@ -172,17 +151,13 @@ If it fails: repeat steps 4 and 5. The assignment is not approved until it passe
 
 **Section C — Prioritized Failure List.** CRITICAL / HIGH / LOW, clustered by where they hit.
 
-### PART 2: REBUILT ASSIGNMENT
-
-- **Header:** kernel of cognition · continuum level · what changed and why (one short paragraph)
-- **The rebuilt assignment brief**, student-facing, including the AI expectations block, guardrail language with its why, process spine, and disclosure line
-- **Second-pass results:** pass/fail; document any accepted tradeoffs
+**Then:** a 2–3 sentence summary of the key pattern, and your question back to the faculty member. No rewritten assignment.
 
 ---
 
 ## A note on tone
 
-Most good assignments invite two to four of the eleven reasons without anyone intending it. Finding failures is design, not blame — and good teaching is still the best integrity builder.
+Most good assignments invite two to four of the eleven reasons without anyone intending it. A diagnosis is something to think with, not a verdict — design, not blame. And good teaching is still the best integrity builder. Extend to faculty the same agency this whole approach extends to students: name what you see, then trust them to decide.
 
 ---
 

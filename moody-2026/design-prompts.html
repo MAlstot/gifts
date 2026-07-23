@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Prompt Starters</title>
+<style>
+  :root{--green:#154734;--gold:#FFB81C;--lgreen:#e9f1ec;--sgold:#fdf3dc;--ink:#222;--mid:#585858;--line:#c9d6cf;--golddk:#6b4c00;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--lgreen);padding:16px;font-size:16px;line-height:1.6;}
+  .wrap{max-width:880px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;}
+  h1{color:var(--green);font-size:1.45rem;margin:0 0 6px;}
+  .sub{color:var(--mid);font-size:.95rem;margin:0 0 10px;}
+  .backlink{display:inline-block;margin-bottom:14px;font-size:.9rem;color:var(--green);font-weight:600;}
+  a{color:var(--green);font-weight:600;}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  .tip{background:var(--sgold);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 14px;font-size:.93rem;margin:12px 0 18px;}
+  .card{border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 18px;margin:14px 0;}
+  .card h2{color:var(--green);font-size:1.05rem;margin:0 0 4px;}
+  .card .when{font-style:italic;color:var(--mid);font-size:.9rem;margin:0 0 10px;}
+  pre{background:#f7f7f4;border:1px dashed var(--mid);border-radius:8px;padding:12px 14px;overflow-x:auto;white-space:pre-wrap;font-size:.9rem;line-height:1.5;font-family:Consolas,Menlo,monospace;margin:0;}
+  .copybtn{font:inherit;font-size:.85rem;font-weight:700;border:2px solid var(--green);background:#fff;color:var(--green);border-radius:8px;padding:7px 14px;cursor:pointer;margin-top:10px;}
+  .copybtn:hover{background:var(--lgreen);}
+  [aria-live]{min-height:1.2em;color:var(--green);font-weight:600;font-size:.9rem;}
+  .foot{font-size:.85rem;color:var(--mid);margin-top:18px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="index.html">&larr; Back to the workshop gift page</a>
+  <h1>Design Prompt Starters</h1>
+  <p class="sub">Move 5 &middot; Act on what the stress test revealed — with AI as a thinking partner, not an author.</p>
+  <p>The stress test <em>diagnoses</em>; it deliberately doesn't fix. That decision is yours. Use these starters to think through a revision AI can help you shape — but you read the diagnosis, you choose the direction, and you keep the pen. Each prompt asks AI for <strong>options with tradeoffs</strong>, never a finished assignment.</p>
+  <div class="tip"><strong>Run it in Baylor's protected Copilot</strong> (green shield) so your materials stay institutionally protected — the same Diligence move we ask of students. Fill the [brackets] first.</div>
+
+  <div class="card">
+    <h2>1 · Make the thinking visible</h2>
+    <p class="when">When the stress test flagged: the kernel can be offloaded with no visible change (Kernel surrender).</p>
+    <pre id="p1">Act as an instructional-design thinking partner. My assignment is [paste it]. The thinking it exists to build is [your kernel sentence]. The stress test flagged that a student could offload that thinking invisibly. Propose 3 different ways to break this into low-stakes checkpoints that make student thinking visible along the way — an outline, a decision memo, an annotated source, a short voice note, whatever fits [my discipline]. For each, give the tradeoff. Do not rewrite my assignment; give me options and I'll choose.</pre>
+    <button type="button" class="copybtn" data-t="p1">Copy this prompt</button>
+  </div>
+
+  <div class="card">
+    <h2>2 · Build discipline-specific ethical scenarios</h2>
+    <p class="when">When you want students to practice judgment instead of being handed a rule.</p>
+    <pre id="p2">Create 5 realistic, discipline-specific ethical dilemmas about AI use that a student in [field] might actually face, tied to the context of [this assignment]. Keep them open-ended — no obvious right answer — so they work as discussion prompts. For each, note which of the tensions it surfaces (e.g., disclosure, authorship, verification, equity). I'll select and adapt.</pre>
+    <button type="button" class="copybtn" data-t="p2">Copy this prompt</button>
+  </div>
+
+  <div class="card">
+    <h2>3 · Surface the ethics already in your objectives</h2>
+    <p class="when">When you want the integrity conversation to grow from the learning, not feel bolted on.</p>
+    <pre id="p3">Here are my learning objectives: [paste them]. Where are ethical or integrity considerations already nested in these objectives, and what real-world professional outcomes do they map to? Show me the connections you see; I'll decide which to make explicit for students.</pre>
+    <button type="button" class="copybtn" data-t="p3">Copy this prompt</button>
+  </div>
+
+  <div class="card">
+    <h2>4 · Rethink the assessment form</h2>
+    <p class="when">When the stress test flagged: the format itself invites offloading (a product-only deliverable).</p>
+    <pre id="p4">The stress test flagged [the weakness you chose to address] in my [current format, e.g., final essay]. Give me 8–10 alternative ways to assess [the objective] — and for each, explain how it changes the integrity pressure (does it make thinking visible? distribute stakes? require the student's own context?). Rank none of them; I'll weigh them against what I know about my students.</pre>
+    <button type="button" class="copybtn" data-t="p4">Copy this prompt</button>
+  </div>
+
+  <p aria-live="polite" id="note"></p>
+
+  <p class="foot">Once your assignment is settled, set the rail: <a href="guardrail-starter.html">Guardrail Starters</a> (Move 6). &nbsp;·&nbsp; Megan Alstot · Academy for Teaching &amp; Learning · Baylor University · megan_alstot@baylor.edu · CC BY-NC-SA 4.0</p>
+</div>
+
+<script>
+function copyText(t){
+  var note=document.getElementById("note");
+  var done=function(ok){ note.textContent = ok ? "Copied — paste it into a new Copilot or Claude chat." : "Copy failed — select the text and copy manually."; };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(function(){done(true);},function(){done(false);}); }
+  else{ var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); try{ done(document.execCommand("copy")); }catch(e){ done(false);} document.body.removeChild(ta); }
+}
+Array.prototype.forEach.call(document.querySelectorAll(".copybtn"), function(b){
+  b.addEventListener("click", function(){ copyText(document.getElementById(b.getAttribute("data-t")).textContent); });
+});
+</script>
+</body>
+</html>

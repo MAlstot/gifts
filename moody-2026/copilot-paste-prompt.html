@@ -36,8 +36,8 @@
 <div class="wrap">
   <a class="backlink" href="index.html">&larr; Back to the workshop gift page</a>
   <h1>The Assignment Integrity Stress Test</h1>
-  <p class="sub">Seven students, each on a bad day, each built from the eleven reasons students cheat &mdash; run against <em>your</em> assignment.</p>
-  <p>Works in <strong>Microsoft Copilot</strong> (Baylor-protected &mdash; look for the green shield), Claude, ChatGPT, or Gemini. Two ways in: grab the full prompt as-is, or build a personalized version with your context already baked in.</p>
+  <p class="sub">Seven students, each on a bad day, each built from the eleven reasons students cheat &mdash; run against <em>your</em> assignment. It <strong>diagnoses; it doesn't fix</strong> &mdash; what to change stays your call.</p>
+  <p>Works in <strong>Microsoft Copilot</strong> (Baylor-protected &mdash; look for the green shield), Claude, ChatGPT, or Gemini. It produces a <strong>Misuse-Pressure Report</strong> and then stops and hands it back to you &mdash; you read the diagnosis and decide what to change. Two ways in: grab the full prompt as-is, or build a personalized version with your context baked in.</p>
   <div class="tip"><strong>Run it where your students live.</strong> Use Baylor's protected Copilot so your drafts stay institutionally protected &mdash; and test in the tool and version your learner survey says students actually use. Choosing the protected tool is itself a Diligence decision.</div>
 
   <!-- ============ PATH A: QUICK ============ -->
@@ -61,7 +61,7 @@
 
     <label for="bLevel">1 &middot; Your assignment's AI literacy level</label>
     <select id="bLevel">
-      <option value="0">Level 1 &middot; No AI Use &mdash; a deliberate design choice</option>
+      <option value="0">Level 1 &middot; AI-Free Assignment &mdash; deliberate, task-specific</option>
       <option value="1" selected>Level 2 &middot; Limited AI Use &mdash; narrow, named tasks only</option>
       <option value="2">Level 3 &middot; Collaborative AI Use &mdash; student drafts, AI critiques</option>
       <option value="3">Level 4 &middot; Integrated AI Use &mdash; AI as a professional tool</option>
@@ -148,7 +148,7 @@ Constraints:
 
 <script>
 var LEVELS=[
- {n:1,nm:"No AI Use",d:"a deliberate pedagogical choice — nothing is delegated; the why is made visible and AI-resistant design protects the kernel"},
+ {n:1,nm:"AI-Free Assignment",d:"an AI-free ASSIGNMENT (not an AI-free course, which is not feasible) — deliberate and task-specific; nothing is delegated, the off-limits uses are named, and the why is visible"},
  {n:2,nm:"Limited AI Use",d:"AI permitted only for specific, named tasks; the core work stays student-owned"},
  {n:3,nm:"Collaborative AI Use",d:"the student drafts first and AI critiques; the student keeps the pen"},
  {n:4,nm:"Integrated AI Use",d:"AI as a professional tool inside the workflow; the judgment stays human"},
@@ -192,34 +192,30 @@ var BODY =
 "HIGH = 2 personas (should fix). LOW = 1 persona. Group by: purpose & framing ·\n"+
 "AI expectations & guardrails · confidence & stakes · process visibility ·\n"+
 "evidence, reflection & disclosure.\n\n"+
-"STEP 3 — REBUILD every CRITICAL and HIGH failure: state the failure, the fix,\n"+
-"and the rewritten section in student-facing language. Rules: mentor, don't\n"+
-"police (no detection tools as fixes); match every guardrail to my declared\n"+
-"continuum level — never demand a higher or lower literacy level than the\n"+
-"assignment declares; every rail ships with a one-sentence student-facing WHY;\n"+
-"protect the kernel structurally (add a visible-thinking artifact if it can be\n"+
-"offloaded silently); fix the time math with scaffolding and grace, not\n"+
-"exhortation. Priority when fixes conflict: Temptation > Kernel > Evidence.\n"+
-"Add where needed: an AI-expectations block (allowed · forbidden · why ·\n"+
-"disclosure line · \"when unsure, ask — asking is never a violation\"), a process\n"+
-"spine of 2–4 low-stakes visible artifacts, and a one-line disclosure students\n"+
-"complete (\"During this work I used [tool] to [do what].\").\n\n"+
-"STEP 4 — SECOND PASS: re-run all 7 personas × 3 layers on the rebuilt\n"+
-"assignment. Pass = zero CRITICAL and ≤2 HIGH remaining with documented\n"+
-"tradeoffs. Repeat until it passes.\n\n"+
-"OUTPUT: PART 1 — Misuse-Pressure Report: (A) structural audit results, (B) a\n"+
-"7×3 persona failure matrix (cell = PASS or the exact break point), (C) the\n"+
-"prioritized failure list. PART 2 — The rebuilt assignment: kernel + level +\n"+
-"what changed, the full student-facing brief with AI-expectations block,\n"+
-"guardrails with their why, process spine, disclosure line, and second-pass\n"+
-"results. Tone throughout: most good assignments invite 2–4 of the eleven\n"+
-"reasons without anyone intending it. This is design, not blame.";
+"STEP 3 — STOP HERE AND HAND IT BACK. Do NOT rewrite my assignment or propose\n"+
+"fixes. This tool diagnoses; the reading of the diagnosis, and what to do about\n"+
+"it, is mine. Present the Misuse-Pressure Report, then in 2–3 sentences name the\n"+
+"most important pattern you see across the failures — and ask me which weakness\n"+
+"I want to think about first, and how I'd like to approach it. Wait for my\n"+
+"answer. Do not assume; do not fix ahead of me.\n\n"+
+"STEP 4 — ONLY IF I NAME A WEAKNESS TO WORK ON: act as a thinking partner, not\n"+
+"an author. Offer 2–3 DIFFERENT directions I could take to address it — each\n"+
+"matched to my declared continuum level (never a higher or lower level than the\n"+
+"assignment declares), each with its tradeoff. Present options, not a finished\n"+
+"assignment. I choose the direction and I keep the pen. (When I'm ready to write\n"+
+"the guardrail itself, I'll use the Guardrail Starters tool.)\n\n"+
+"OUTPUT for the first pass: the Misuse-Pressure Report only — (A) structural\n"+
+"audit results, (B) a 7×3 persona failure matrix (cell = PASS or the exact\n"+
+"break point), (C) the prioritized failure list — followed by your short\n"+
+"summary of the key pattern and your question back to me. Tone throughout: most\n"+
+"good assignments invite 2–4 of the eleven reasons without anyone intending it.\n"+
+"This is a diagnosis to think with, not a verdict. Design, not blame.";
 
 var QUICK_INTRO =
 "You are running an ASSIGNMENT INTEGRITY STRESS TEST. Do not begin until I have\n"+
 "pasted my assignment. First ask me for: (1) the assignment text as students see\n"+
 "it; (2) the kernel of cognition — \"the thinking this assignment exists to build\n"+
-"is ___\"; (3) its AI literacy level: Level 1 No AI Use (deliberate choice),\n"+
+"is ___\"; (3) its AI literacy level: Level 1 AI-Free Assignment (deliberate, task-specific — not a course-wide ban),\n"+
 "Level 2 Limited (narrow tasks only), Level 3 Collaborative (I draft, AI\n"+
 "critiques), Level 4 Integrated (AI as professional tool), or Level 5 Innovation\n"+
 "(students design novel uses with self-set rails); (4) discipline, course level,\n"+
@@ -276,12 +272,13 @@ function skillText(){
     +"1. Extract the assignment's requirements, stakes, deadlines, and any stated AI expectations.\n"
     +"2. Stress-test it through 7 personas built from the eleven reasons students cheat (Bertram Gallant & Rettinger, 2025): the Doubter, the Line-Guesser, the Efficiency Rationalizer, the 11 PM Procrastinator, the Ghost-Writer Shopper, the Norm Reader, the Grade Maximizer — each across 3 failure layers: Temptation & ambiguity; Kernel surrender; Evidence & accountability. Cite the exact sentence or gap that breaks.\n"
     +"3. Tally severity: CRITICAL = 3+ personas flag the same failure; HIGH = 2; LOW = 1.\n"
-    +"4. For each CRITICAL and HIGH failure, generate feedback questions and suggested guardrail language matched to Level "+L.n+" ("+L.nm+"), every rail with a one-sentence student-facing why.\n"
-    +"5. Output a Misuse-Pressure Report: structural audit, 7×3 persona failure matrix, prioritized failure list, and suggested rails.\n"
+    +"4. Output the Misuse-Pressure Report: structural audit, 7×3 persona failure matrix, prioritized failure list.\n"
+    +"5. STOP. Do not rewrite the assignment or propose fixes. Summarize the key pattern in 2–3 sentences and ask the faculty member which weakness to work on first and how they'd like to approach it. Only if they name one, offer 2–3 directions with tradeoffs, matched to Level "+L.n+" ("+L.nm+") — options, not a finished assignment.\n"
     +"Constraints:\n"
-    +"- Do not rewrite faculty materials; provide feedback, questions, and suggested rails only.\n"
+    +"- Diagnose; do not fix. The faculty member reads the diagnosis and decides what to change.\n"
+    +"- Do not rewrite faculty materials; offer options and tradeoffs only, never a finished rewrite.\n"
     +"- Mentor, don't police: never recommend detection tools or surveillance.\n"
-    +"- Never suggest rails above or below Level "+L.n+" — the declared level is the boundary.\n"
+    +"- Never suggest a direction above or below Level "+L.n+" — the declared level is the boundary.\n"
     +"- Never include identifiable student data.";
 }
 function renderSkill(){ $("skillGen").textContent = skillText(); }
