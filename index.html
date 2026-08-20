@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teach for Integrity — Your Gift · Engineering &amp; Computer Science</title>
+<meta name="description" content="Ready-to-use tools from the Teach for Integrity faculty workshop for Engineering and Computer Science faculty, Baylor University.">
+<style>
+  :root{
+    --green:#154734; --green-deep:#0F3527; --green-mid:#1B5540;
+    --gold:#FFB81C; --gold-soft:#FDF3DC;
+    --mist:#E9F1EC; --line:#C9D6CF; --ink:#1F1500; --muted:#4A5B52;
+    --pink:#E27DA8;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:#fff; color:var(--ink);
+    font:400 17px/1.6 "Segoe UI",Calibri,system-ui,-apple-system,sans-serif;
+  }
+  a{color:var(--green)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  header{background:var(--green);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}
+  header::after{
+    content:"";position:absolute;right:-90px;bottom:-150px;width:360px;height:360px;
+    border-radius:50%;background:var(--green-mid);opacity:.55;
+  }
+  header .wrap{position:relative;z-index:1}
+  .eyebrow{
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin:0 0 14px;
+  }
+  h1{font-family:Cambria,Georgia,serif;font-size:clamp(34px,5vw,52px);line-height:1.1;margin:0 0 14px;font-weight:700}
+  .sub{font-size:clamp(17px,2.2vw,20px);max-width:42em;margin:0 0 26px;color:#DFE9E3}
+  .byline{font-size:15px;color:#BFD2C7;margin:0}
+
+  .promise{
+    background:var(--gold-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .promise p{margin:0;font-size:17px}
+  .promise strong{color:var(--green)}
+
+  section{padding:48px 0 8px}
+  .beat{
+    display:flex;align-items:baseline;gap:14px;margin:0 0 6px;flex-wrap:wrap;
+  }
+  .beat .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;
+    font-weight:700;font-size:16px;flex:none;
+  }
+  .beat h2{font-family:Cambria,Georgia,serif;font-size:clamp(24px,3.4vw,32px);margin:0;color:var(--green);font-weight:700}
+  .beat-note{margin:0 0 26px 48px;color:var(--muted);max-width:52em}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:20px;margin:0 0 8px}
+  .card{
+    border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;background:#fff;
+    display:flex;flex-direction:column;transition:box-shadow .15s ease,transform .15s ease;
+  }
+  .card:hover{box-shadow:0 8px 24px rgba(21,71,52,.13);transform:translateY(-2px)}
+  .card h3{margin:0 0 8px;font-size:19px;color:var(--green);font-weight:700}
+  .card p{margin:0 0 16px;font-size:15.5px;color:var(--muted);flex:1}
+  .meta{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 10px;min-height:2.4em}
+  .go{
+    display:inline-block;background:var(--green);color:#fff;text-decoration:none;
+    padding:10px 18px;border-radius:999px;font-size:15px;font-weight:700;align-self:flex-start;
+  }
+  .go:hover,.go:focus{background:var(--green-deep)}
+  .go.alt{background:var(--gold);color:var(--ink)}
+  .go.alt:hover,.go.alt:focus{background:#E9A50F}
+  .also{margin:12px 0 0;font-size:14.5px}
+  .also a{font-weight:600}
+
+  .strip{background:var(--mist);margin-top:44px;padding:40px 0}
+  .strip h2{font-family:Cambria,Georgia,serif;color:var(--green);margin:0 0 18px;font-size:26px}
+  .list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px 28px}
+  .list li{padding-left:20px;position:relative;font-size:16px}
+  .list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+
+  footer{background:var(--green);color:#DFE9E3;padding:40px 0 48px;margin-top:0}
+  footer h2{font-family:Cambria,Georgia,serif;color:#fff;margin:0 0 10px;font-size:24px}
+  footer a{color:var(--gold)}
+  .hitl{color:var(--pink);font-weight:700;letter-spacing:.04em}
+  .fine{font-size:14px;color:#BFD2C7;margin-top:22px;line-height:1.55}
+
+  @media (max-width:560px){
+    header{padding:40px 0 34px}
+    .beat-note{margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Baylor Academy for Teaching &amp; Learning &middot; Engineering &amp; Computer Science</p>
+    <h1>Teach for Integrity</h1>
+    <p class="sub">Everything from the session, plus the tools we didn't have time to open. Teaching for <em>learning</em> integrity — not just academic integrity — in the age of AI.</p>
+    <p class="byline">Megan Alstot, Ph.D. &middot; Academy for Teaching &amp; Learning &middot; Baylor University</p>
+  </div>
+</header>
+
+<div class="promise">
+  <div class="wrap">
+    <p><strong>Pick one thing.</strong> Not all of it. This page was open from the first slide and it stays open — take the tool that matches the move you picked, and leave the rest for the week you actually need it.</p>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="beat"><span class="num">1</span><h2>Weeks one and two</h2></div>
+  <p class="beat-note">The highest-opportunity, lowest-tech weeks you have. Everything here works before a single assignment comes in.</p>
+  <div class="cards">
+
+    <div class="card">
+      <p class="meta">Move &middot; 10 minutes to adapt</p>
+      <h3>Learner Information Survey</h3>
+      <p>Meet your students in week one: names, goals, and how they already use AI. The widest-net move in the whole session — it builds against eight of the eleven reasons.</p>
+      <a class="go" href="https://malstot.github.io/gifts/moody-2026/learner-survey.html">Open the survey</a>
+      <p class="also">Prefer to edit it? <a href="https://malstot.github.io/gifts/moody-2026/Learner-Information-Survey.docx">Download the Word version</a></p>
+    </div>
+
+    <div class="card">
+      <p class="meta">Reference &middot; browse or filter</p>
+      <h3>The Eleven Reasons: A Mentoring Matrix</h3>
+      <p>The research behind the slide, in full. Each reason with the conditions that feed it, the diagnostic question to ask, and the integrity-building response that answers it.</p>
+      <a class="go" href="https://malstot.github.io/AI-literacy/tfm6elevenreasons.html">Open the matrix</a>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="beat"><span class="num">2</span><h2>Rails — because "help" is a four-letter word</h2></div>
+  <p class="beat-note">A student who types <em>help</em> has made a delegation decision by not making one, and written a description that describes nothing. Rails are how the decision stays with them — and the stress test below is what tells you which rails you need.</p>
+  <div class="cards">
+
+    <div class="card">
+      <p class="meta">Handout &middot; for you and your students</p>
+      <h3>Student prompting guardrails</h3>
+      <p>The faculty resource behind RADAR: example rails students set for themselves before they ask. Not a template to fill in — there isn't one right guardrail, so take what fits and adapt the <em>why</em> that comes with it.</p>
+      <a class="go" href="https://docs.google.com/document/d/1JXOGM3bCO37cRWAm5fiJ5qbMCuwZZFu4BNJTFOc9GGs/view">Open the handout</a>
+      <p class="also"><a href="https://docs.google.com/document/d/1ye--7TZXXJxVZl_-B-xeVfUTu2KUBVLYsYE_7J5j4NQ/copy">Make your own copy</a></p>
+    </div>
+
+    <div class="card">
+      <p class="meta">Reflective &middot; 10 minutes</p>
+      <h3>The AI Literacy Continuum</h3>
+      <p>Place an assignment. Five levels, no hierarchy — every level is a real choice when it's intentional and your kernel justifies it. An AI-free <em>assignment</em> is a real choice; an AI-free <em>course</em> is not.</p>
+      <a class="go" href="https://malstot.github.io/AI-literacy/tfm4continuumcognitive.html">Place an assignment</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="beat"><span class="num">3</span><h2>Mentor, not police</h2></div>
+  <p class="beat-note">Four moves inside your own sphere of influence. Start with the diagnosis — it's the fastest, and it makes the other three concrete.</p>
+  <div class="cards">
+
+    <div class="card">
+      <p class="meta">Start here &middot; 4 minutes</p>
+      <h3>Assignment Integrity Stress Test</h3>
+      <p>Meet your assignment on your students' worst day, before they do. Seven bad-day students, built from the eleven reasons, run against work you already own. It diagnoses — it does not fix. What you change stays entirely your call.</p>
+      <a class="go alt" href="https://malstot.github.io/gifts/moody-2026/copilot-paste-prompt.html">Run the stress test</a>
+    </div>
+
+
+    <div class="card">
+      <p class="meta">Policy &middot; 8 minutes</p>
+      <h3>Draft Your Disclosure Stance</h3>
+      <p>Four questions, and you walk out with disclosure language in your own voice. Disclosure isn't compliance — it's the assessment. A student can't fake a reflection about thinking they never did.</p>
+      <a class="go" href="https://malstot.github.io/AI-literacy/tfm6disclosurestance.html">Draft your stance</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <h2>From the session</h2>
+    <ul class="list">
+      <li><a href="TeachForIntegrity-ECS-2026.pdf">The slides (PDF)</a> — the full deck, including everything we didn't reach</li>
+      <li><a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations">Anthropic's AI Fluency course</a> — the 4Ds, free and self-paced</li>
+      <li><a href="https://howtoteachwithai.substack.com/p/stop-reviewing-your-lesson-plans">Winkel's "7 Bad-Day Students"</a> — the pattern the stress test is built on</li>
+      <li><a href="https://ps-ai-teach-hub.lovable.app/transform">Penn State's ADAPT hub</a> — assignment transformation, if you want a second angle</li>
+      <li><a href="https://malstot.github.io/gifts/moody-2026/attribution-license.html">Attribution &amp; license</a> — what you may adapt, and what stays with its authors</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <h2>Keep the human in the learning loop.</h2>
+    <p>Those forty-five minutes were the start of a conversation, not the last word. If you want help turning one of these into something that actually fits your course, that's what the ATL is here for — consultations, small-group sessions, and workshops built for your department.</p>
+    <p><a href="mailto:megan_alstot@baylor.edu">megan_alstot@baylor.edu</a></p>
+    <p class="fine">
+      <span class="hitl">HITL&sup2;&trade;</span> — Humans in the Learning Loop.<br>
+      Original workshop materials &copy; 2026 Megan Alstot, Academy for Teaching &amp; Learning, Baylor University — licensed CC BY-NC-SA 4.0 (adapt for non-commercial educational use, with attribution, shared alike).
+      Not covered: the cited scholarship (cite the sources); the 4D Framework (Anthropic, CC BY-NC-SA 4.0); the continuum (adapted from Indiana Wesleyan University / Bleistein &amp; Snyder, 2026, informed by AIAS / Perkins et al., 2024); Winkel's review pattern; Baylor and HITL&sup2;&trade; names and marks.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
